@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.19.4
-// source: hello_world_service/hello_world_service.proto
+// source: protos/hello_world_service/hello_world_service.proto
 
 package hello_world_service
 
@@ -42,7 +42,7 @@ func NewHelloWorldServiceClient(cc grpc.ClientConnInterface) HelloWorldServiceCl
 
 func (c *helloWorldServiceClient) CreateHelloWorld(ctx context.Context, in *CreateHelloWorldRequest, opts ...grpc.CallOption) (*CreateHelloWorldResponse, error) {
 	out := new(CreateHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_proto.hello_world_service.HelloWorldService/createHelloWorld", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/CreateHelloWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *helloWorldServiceClient) CreateHelloWorld(ctx context.Context, in *Crea
 
 func (c *helloWorldServiceClient) DeleteHelloWorld(ctx context.Context, in *DeleteHelloWorldRequest, opts ...grpc.CallOption) (*DeleteHelloWorldResponse, error) {
 	out := new(DeleteHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_proto.hello_world_service.HelloWorldService/deleteHelloWorld", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/DeleteHelloWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func (c *helloWorldServiceClient) DeleteHelloWorld(ctx context.Context, in *Dele
 
 func (c *helloWorldServiceClient) UpdateHelloWorld(ctx context.Context, in *UpdateHelloWorldRequest, opts ...grpc.CallOption) (*UpdateHelloWorldResponse, error) {
 	out := new(UpdateHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_proto.hello_world_service.HelloWorldService/updateHelloWorld", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/UpdateHelloWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func (c *helloWorldServiceClient) UpdateHelloWorld(ctx context.Context, in *Upda
 
 func (c *helloWorldServiceClient) ListHelloWorld(ctx context.Context, in *ListHelloWorldRequest, opts ...grpc.CallOption) (*ListHelloWorldResponse, error) {
 	out := new(ListHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_proto.hello_world_service.HelloWorldService/listHelloWorld", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/ListHelloWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -130,7 +130,7 @@ func _HelloWorldService_CreateHelloWorld_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_proto.hello_world_service.HelloWorldService/createHelloWorld",
+		FullMethod: "/my_interface.hello_world_service.HelloWorldService/CreateHelloWorld",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloWorldServiceServer).CreateHelloWorld(ctx, req.(*CreateHelloWorldRequest))
@@ -148,7 +148,7 @@ func _HelloWorldService_DeleteHelloWorld_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_proto.hello_world_service.HelloWorldService/deleteHelloWorld",
+		FullMethod: "/my_interface.hello_world_service.HelloWorldService/DeleteHelloWorld",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloWorldServiceServer).DeleteHelloWorld(ctx, req.(*DeleteHelloWorldRequest))
@@ -166,7 +166,7 @@ func _HelloWorldService_UpdateHelloWorld_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_proto.hello_world_service.HelloWorldService/updateHelloWorld",
+		FullMethod: "/my_interface.hello_world_service.HelloWorldService/UpdateHelloWorld",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloWorldServiceServer).UpdateHelloWorld(ctx, req.(*UpdateHelloWorldRequest))
@@ -184,7 +184,7 @@ func _HelloWorldService_ListHelloWorld_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_proto.hello_world_service.HelloWorldService/listHelloWorld",
+		FullMethod: "/my_interface.hello_world_service.HelloWorldService/ListHelloWorld",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloWorldServiceServer).ListHelloWorld(ctx, req.(*ListHelloWorldRequest))
@@ -196,26 +196,26 @@ func _HelloWorldService_ListHelloWorld_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var HelloWorldService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "my_proto.hello_world_service.HelloWorldService",
+	ServiceName: "my_interface.hello_world_service.HelloWorldService",
 	HandlerType: (*HelloWorldServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "createHelloWorld",
+			MethodName: "CreateHelloWorld",
 			Handler:    _HelloWorldService_CreateHelloWorld_Handler,
 		},
 		{
-			MethodName: "deleteHelloWorld",
+			MethodName: "DeleteHelloWorld",
 			Handler:    _HelloWorldService_DeleteHelloWorld_Handler,
 		},
 		{
-			MethodName: "updateHelloWorld",
+			MethodName: "UpdateHelloWorld",
 			Handler:    _HelloWorldService_UpdateHelloWorld_Handler,
 		},
 		{
-			MethodName: "listHelloWorld",
+			MethodName: "ListHelloWorld",
 			Handler:    _HelloWorldService_ListHelloWorld_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "hello_world_service/hello_world_service.proto",
+	Metadata: "protos/hello_world_service/hello_world_service.proto",
 }
