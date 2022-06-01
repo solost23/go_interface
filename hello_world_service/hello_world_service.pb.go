@@ -7,7 +7,7 @@
 package hello_world_service
 
 import (
-	common "github.com/solost23/my_interface/gen_go/common"
+	common "github.com/solost23/my_interface/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
