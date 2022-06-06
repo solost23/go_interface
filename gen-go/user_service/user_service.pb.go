@@ -7,7 +7,7 @@
 package user_service
 
 import (
-	common "github.com/solost23/go_interface/gen_go/common"
+	common "github.com/solost23/go_interface/gen-go/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
