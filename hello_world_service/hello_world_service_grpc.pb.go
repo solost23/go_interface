@@ -4,7 +4,7 @@
 // - protoc             v3.19.4
 // source: protos/hello_world_service/hello_world_service.proto
 
-package hello_world_service
+package user_service
 
 import (
 	context "context"
@@ -18,202 +18,202 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// HelloWorldServiceClient is the client API for HelloWorldService service.
+// UserServiceClient is the client API for UserService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HelloWorldServiceClient interface {
-	// createHelloWorld 增加helloWorld
-	CreateHelloWorld(ctx context.Context, in *CreateHelloWorldRequest, opts ...grpc.CallOption) (*CreateHelloWorldResponse, error)
-	// deleteHelloWorld 删除helloWorld
-	DeleteHelloWorld(ctx context.Context, in *DeleteHelloWorldRequest, opts ...grpc.CallOption) (*DeleteHelloWorldResponse, error)
-	// updateHelloWorld 更新helloWorld
-	UpdateHelloWorld(ctx context.Context, in *UpdateHelloWorldRequest, opts ...grpc.CallOption) (*UpdateHelloWorldResponse, error)
-	// listHelloWorld 查找helloWorld
-	ListHelloWorld(ctx context.Context, in *ListHelloWorldRequest, opts ...grpc.CallOption) (*ListHelloWorldResponse, error)
+type UserServiceClient interface {
+	// createUser 增加User
+	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
+	// deleteUser 删除User
+	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error)
+	// updateUser 更新User
+	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
+	// listUser 查找User
+	ListHelloWorld(ctx context.Context, in *ListUserRequest, opts ...grpc.CallOption) (*ListUserResponse, error)
 }
 
-type helloWorldServiceClient struct {
+type userServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewHelloWorldServiceClient(cc grpc.ClientConnInterface) HelloWorldServiceClient {
-	return &helloWorldServiceClient{cc}
+func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
+	return &userServiceClient{cc}
 }
 
-func (c *helloWorldServiceClient) CreateHelloWorld(ctx context.Context, in *CreateHelloWorldRequest, opts ...grpc.CallOption) (*CreateHelloWorldResponse, error) {
-	out := new(CreateHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/CreateHelloWorld", in, out, opts...)
+func (c *userServiceClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
+	out := new(CreateUserResponse)
+	err := c.cc.Invoke(ctx, "/go_interface.user_service.UserService/CreateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *helloWorldServiceClient) DeleteHelloWorld(ctx context.Context, in *DeleteHelloWorldRequest, opts ...grpc.CallOption) (*DeleteHelloWorldResponse, error) {
-	out := new(DeleteHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/DeleteHelloWorld", in, out, opts...)
+func (c *userServiceClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*DeleteUserResponse, error) {
+	out := new(DeleteUserResponse)
+	err := c.cc.Invoke(ctx, "/go_interface.user_service.UserService/DeleteUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *helloWorldServiceClient) UpdateHelloWorld(ctx context.Context, in *UpdateHelloWorldRequest, opts ...grpc.CallOption) (*UpdateHelloWorldResponse, error) {
-	out := new(UpdateHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/UpdateHelloWorld", in, out, opts...)
+func (c *userServiceClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
+	out := new(UpdateUserResponse)
+	err := c.cc.Invoke(ctx, "/go_interface.user_service.UserService/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *helloWorldServiceClient) ListHelloWorld(ctx context.Context, in *ListHelloWorldRequest, opts ...grpc.CallOption) (*ListHelloWorldResponse, error) {
-	out := new(ListHelloWorldResponse)
-	err := c.cc.Invoke(ctx, "/my_interface.hello_world_service.HelloWorldService/ListHelloWorld", in, out, opts...)
+func (c *userServiceClient) ListHelloWorld(ctx context.Context, in *ListUserRequest, opts ...grpc.CallOption) (*ListUserResponse, error) {
+	out := new(ListUserResponse)
+	err := c.cc.Invoke(ctx, "/go_interface.user_service.UserService/ListHelloWorld", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// HelloWorldServiceServer is the server API for HelloWorldService service.
-// All implementations must embed UnimplementedHelloWorldServiceServer
+// UserServiceServer is the server API for UserService service.
+// All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility
-type HelloWorldServiceServer interface {
-	// createHelloWorld 增加helloWorld
-	CreateHelloWorld(context.Context, *CreateHelloWorldRequest) (*CreateHelloWorldResponse, error)
-	// deleteHelloWorld 删除helloWorld
-	DeleteHelloWorld(context.Context, *DeleteHelloWorldRequest) (*DeleteHelloWorldResponse, error)
-	// updateHelloWorld 更新helloWorld
-	UpdateHelloWorld(context.Context, *UpdateHelloWorldRequest) (*UpdateHelloWorldResponse, error)
-	// listHelloWorld 查找helloWorld
-	ListHelloWorld(context.Context, *ListHelloWorldRequest) (*ListHelloWorldResponse, error)
-	mustEmbedUnimplementedHelloWorldServiceServer()
+type UserServiceServer interface {
+	// createUser 增加User
+	CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
+	// deleteUser 删除User
+	DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error)
+	// updateUser 更新User
+	UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
+	// listUser 查找User
+	ListHelloWorld(context.Context, *ListUserRequest) (*ListUserResponse, error)
+	mustEmbedUnimplementedUserServiceServer()
 }
 
-// UnimplementedHelloWorldServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedHelloWorldServiceServer struct {
+// UnimplementedUserServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedUserServiceServer struct {
 }
 
-func (UnimplementedHelloWorldServiceServer) CreateHelloWorld(context.Context, *CreateHelloWorldRequest) (*CreateHelloWorldResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateHelloWorld not implemented")
+func (UnimplementedUserServiceServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedHelloWorldServiceServer) DeleteHelloWorld(context.Context, *DeleteHelloWorldRequest) (*DeleteHelloWorldResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteHelloWorld not implemented")
+func (UnimplementedUserServiceServer) DeleteUser(context.Context, *DeleteUserRequest) (*DeleteUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
-func (UnimplementedHelloWorldServiceServer) UpdateHelloWorld(context.Context, *UpdateHelloWorldRequest) (*UpdateHelloWorldResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateHelloWorld not implemented")
+func (UnimplementedUserServiceServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedHelloWorldServiceServer) ListHelloWorld(context.Context, *ListHelloWorldRequest) (*ListHelloWorldResponse, error) {
+func (UnimplementedUserServiceServer) ListHelloWorld(context.Context, *ListUserRequest) (*ListUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListHelloWorld not implemented")
 }
-func (UnimplementedHelloWorldServiceServer) mustEmbedUnimplementedHelloWorldServiceServer() {}
+func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 
-// UnsafeHelloWorldServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HelloWorldServiceServer will
+// UnsafeUserServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UserServiceServer will
 // result in compilation errors.
-type UnsafeHelloWorldServiceServer interface {
-	mustEmbedUnimplementedHelloWorldServiceServer()
+type UnsafeUserServiceServer interface {
+	mustEmbedUnimplementedUserServiceServer()
 }
 
-func RegisterHelloWorldServiceServer(s grpc.ServiceRegistrar, srv HelloWorldServiceServer) {
-	s.RegisterService(&HelloWorldService_ServiceDesc, srv)
+func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
+	s.RegisterService(&UserService_ServiceDesc, srv)
 }
 
-func _HelloWorldService_CreateHelloWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateHelloWorldRequest)
+func _UserService_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HelloWorldServiceServer).CreateHelloWorld(ctx, in)
+		return srv.(UserServiceServer).CreateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_interface.hello_world_service.HelloWorldService/CreateHelloWorld",
+		FullMethod: "/go_interface.user_service.UserService/CreateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelloWorldServiceServer).CreateHelloWorld(ctx, req.(*CreateHelloWorldRequest))
+		return srv.(UserServiceServer).CreateUser(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _HelloWorldService_DeleteHelloWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteHelloWorldRequest)
+func _UserService_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HelloWorldServiceServer).DeleteHelloWorld(ctx, in)
+		return srv.(UserServiceServer).DeleteUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_interface.hello_world_service.HelloWorldService/DeleteHelloWorld",
+		FullMethod: "/go_interface.user_service.UserService/DeleteUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelloWorldServiceServer).DeleteHelloWorld(ctx, req.(*DeleteHelloWorldRequest))
+		return srv.(UserServiceServer).DeleteUser(ctx, req.(*DeleteUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _HelloWorldService_UpdateHelloWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateHelloWorldRequest)
+func _UserService_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HelloWorldServiceServer).UpdateHelloWorld(ctx, in)
+		return srv.(UserServiceServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_interface.hello_world_service.HelloWorldService/UpdateHelloWorld",
+		FullMethod: "/go_interface.user_service.UserService/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelloWorldServiceServer).UpdateHelloWorld(ctx, req.(*UpdateHelloWorldRequest))
+		return srv.(UserServiceServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _HelloWorldService_ListHelloWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListHelloWorldRequest)
+func _UserService_ListHelloWorld_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HelloWorldServiceServer).ListHelloWorld(ctx, in)
+		return srv.(UserServiceServer).ListHelloWorld(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/my_interface.hello_world_service.HelloWorldService/ListHelloWorld",
+		FullMethod: "/go_interface.user_service.UserService/ListHelloWorld",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelloWorldServiceServer).ListHelloWorld(ctx, req.(*ListHelloWorldRequest))
+		return srv.(UserServiceServer).ListHelloWorld(ctx, req.(*ListUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// HelloWorldService_ServiceDesc is the grpc.ServiceDesc for HelloWorldService service.
+// UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var HelloWorldService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "my_interface.hello_world_service.HelloWorldService",
-	HandlerType: (*HelloWorldServiceServer)(nil),
+var UserService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "go_interface.user_service.UserService",
+	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateHelloWorld",
-			Handler:    _HelloWorldService_CreateHelloWorld_Handler,
+			MethodName: "CreateUser",
+			Handler:    _UserService_CreateUser_Handler,
 		},
 		{
-			MethodName: "DeleteHelloWorld",
-			Handler:    _HelloWorldService_DeleteHelloWorld_Handler,
+			MethodName: "DeleteUser",
+			Handler:    _UserService_DeleteUser_Handler,
 		},
 		{
-			MethodName: "UpdateHelloWorld",
-			Handler:    _HelloWorldService_UpdateHelloWorld_Handler,
+			MethodName: "UpdateUser",
+			Handler:    _UserService_UpdateUser_Handler,
 		},
 		{
 			MethodName: "ListHelloWorld",
-			Handler:    _HelloWorldService_ListHelloWorld_Handler,
+			Handler:    _UserService_ListHelloWorld_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
